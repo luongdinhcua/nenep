@@ -22,14 +22,28 @@
 .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:100;background:#0f172a;color:#fff;border-radius:12px;padding:10px 14px;box-shadow:var(--shadow);max-width:88vw;text-align:center;font-size:13px}.sync-spin{display:inline-block;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
 .view-switch{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#f1f5f9;border:1px solid var(--line);padding:4px;border-radius:13px;margin-bottom:8px}.view-tab{border:0;border-radius:10px;padding:9px 10px;font-weight:900;background:transparent;color:#64748b;min-height:38px}.view-tab.active{background:#fff;color:var(--blue-dark);box-shadow:0 1px 4px rgba(15,23,42,.08)}.view-hint{font-size:11px;color:var(--muted);margin:0 1px 9px;line-height:1.35}.user-tag{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:3px 7px;font-size:10.5px;font-weight:800;background:#e8fbf8;color:#087b83}.queue-line{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted)}.queue-pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 8px;background:#f1f5f9;color:#475569;font-weight:800}.queue-pill.pending{background:#fff7ed;color:#9a3412}.queue-pill.syncing{background:#eff6ff;color:#1d4ed8}.queue-pill.error{background:#fef2f2;color:#b91c1c}.pending-card{border-style:dashed;background:#fffdf7}.pending-badge{font-size:11px;border-radius:999px;padding:4px 8px;font-weight:800;background:#fff7ed;color:#9a3412}.pending-badge.error{background:#fef2f2;color:#b91c1c}.mini-btn{border:0;border-radius:9px;padding:7px 10px;font-size:12px;font-weight:800;background:#f1f5f9;color:#334155}
 @media(max-width:480px){.brand{min-height:61px}.brand>div{padding:0 66px}.brand h1{font-size:16.5px}.brand .school-name{font-size:10px;line-height:1.2}.brand small{font-size:11px}.brand #logoutBtn{right:0;padding:8px 10px;min-height:38px}.grid2{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7px}.filter-grid{gap:7px}.filter-control{height:42px!important;min-height:42px!important;line-height:42px!important;padding-left:10px!important;padding-right:10px!important}.filter-select-wrap select{padding-right:30px!important}.filter-select-wrap:after{right:10px}.content{padding:9px}.panel{border-radius:14px}.topbar{padding:9px 10px}.brand h1{font-size:16.5px}.brand .btn{padding:8px 11px;min-height:38px}.fab{right:16px;width:58px;height:58px;font-size:34px;line-height:1;padding:0;display:flex;align-items:center;justify-content:center}.sheet{padding-left:10px;padding-right:10px;max-height:97dvh}.field{font-size:16px;min-height:39px}.compact-field{height:39px;min-height:39px;padding:7px 9px}.btn{min-height:42px}.formgrid{gap:6px}.suggest-item{min-height:42px;padding:8px 9px}.form-actions{position:sticky;bottom:0;background:#fff;padding-top:7px}.loginbox{padding:18px}.nameclass-grid{grid-template-columns:minmax(0,2.2fr) minmax(76px,.72fr)}.date-session-grid{grid-template-columns:minmax(0,1.25fr) minmax(84px,.75fr)}.summary{font-size:12px}.sheet h2{font-size:17px;margin-bottom:8px}.school-name{font-size:10px}}@media(max-width:360px){.grid2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.nameclass-grid{grid-template-columns:minmax(0,2.05fr) minmax(72px,.7fr)}.date-session-grid{grid-template-columns:minmax(0,1.2fr) minmax(82px,.8fr)}.compact-field{padding:6px 8px}.sheet{padding-left:8px;padding-right:8px;max-height:97dvh}.chip{font-size:10.5px;padding:5px 8px}}
+
+/* V7 refinements */
+.app-school-top,.login-school-top{font-size:11px!important;font-weight:750!important;line-height:1.2!important;margin:0 0 3px!important;letter-spacing:.01em}
+.brand h1,.loginbox h1{font-size:20px!important;line-height:1.08!important;margin:0 0 4px!important;font-weight:900!important}
+/* Pull the add sheet higher and use more of the phone screen. */
+.sheet{max-height:calc(100dvh - 18px)!important;padding-top:8px!important}
+.handle{margin-bottom:6px!important}.sheet h2{margin-bottom:7px!important}.formgrid{gap:5px!important}
+.chips{max-height:164px!important}
+.quick-date-block{margin-top:0}.quick-date-title{margin-bottom:4px}
+.quick-dates{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;width:100%}
+.quick-date-btn{min-width:0;height:34px;padding:0 2px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--navy);font-size:10.5px;font-weight:850;display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.quick-date-btn.active{border-color:var(--teal);background:#e8f8f8;color:var(--teal-dark);box-shadow:inset 0 0 0 1px rgba(16,166,166,.08)}
+@media(max-width:360px){.quick-date-btn{font-size:9.8px;height:32px}.quick-dates{gap:3px}}
 </style>
 </head>
 <body>
 <div id="loginView" class="login">
   <div class="loginbox">
     
+    <div class="school-name login-school-top">Đoàn Trường THCS và THPT Lương Định Của</div>
     <h1>Quản Lý Nề Nếp</h1>
-    <div class="school-name" style="font-size:12px;margin-bottom:8px">Đoàn Trường THCS và THPT Lương Định Của</div>
+    <p>Chỉ dành cho tài khoản editor được cấp quyền cập nhật vi phạm.</p>
     <input id="loginUser" class="field" autocomplete="username" placeholder="Tài khoản">
     <input id="loginPass" class="field" type="password" autocomplete="current-password" placeholder="Mật khẩu">
     <button id="loginBtn" class="btn btn-primary" style="width:100%">Đăng nhập</button>
@@ -40,7 +54,7 @@
 <div id="appView" class="shell hidden">
   <header class="topbar">
     <div class="brand">
-      <div><h1>Quản Lý Nề Nếp</h1><div class="school-name">Đoàn Trường THCS và THPT Lương Định Của</div><small id="userLine">Tài khoản: —</small></div>
+      <div><div class="school-name app-school-top">Đoàn Trường THCS và THPT Lương Định Của</div><h1>Quản Lý Nề Nếp</h1><small id="userLine">Tài khoản: —</small></div>
       <button id="logoutBtn" class="btn btn-soft">Thoát</button>
     </div>
   </header>
@@ -48,7 +62,7 @@
     <section class="panel">
       <div class="row between" style="margin-bottom:10px">
         <div><div class="label">Năm học / tuần hiện tại</div><div id="weekTitle" style="font-weight:900">—</div></div>
-        <button id="syncBtn" class="btn btn-green">↻ Đồng bộ danh mục</button>
+        <button id="syncBtn" class="btn btn-green">↻ Đồng bộ</button>
       </div>
       <div class="view-switch" aria-label="Phạm vi hiển thị">
         <button id="mineTab" class="view-tab active" type="button">Của tôi</button>
@@ -101,6 +115,10 @@
         <div><label class="label">Ngày</label><input id="fDate" class="field compact-field date-mini" inputmode="numeric" placeholder="dd/mm/yyyy"></div>
         <div><label class="label">Buổi</label><select id="fSession" class="field compact-field session-mini"><option>Sáng</option><option>Chiều</option><option>Cả ngày</option></select></div>
       </div>
+      <div class="quick-date-block">
+        <div class="label quick-date-title">Chọn nhanh ngày</div>
+        <div id="quickDates" class="quick-dates" aria-label="Các ngày từ thứ Hai đến thứ Bảy"></div>
+      </div>
       <div><label class="label">Ghi chú</label><input id="fNote" class="field compact-field" placeholder="Không bắt buộc"></div>
       <div class="summary" id="entryHint">Bấm lưu là nhập người tiếp theo ngay; dữ liệu sẽ tự đồng bộ ở nền.</div>
     </div>
@@ -112,6 +130,7 @@
 <script>
 const API_URL='https://script.google.com/macros/s/AKfycbxcA-WVrQVjqJWgm9IvkKJ79s0AImEmbp73cPw06Zr-84YYJWzEyUhfqayc4Sa6FBE7/exec';
 const S={token:'nenep_editor_token',catalog:'nenep_editor_catalog',queue:'nenep_editor_queue_v2'};
+let stickyEntryDate='';
 let authToken=localStorage.getItem(S.token)||'';
 let me=null,catalog={students:[],classes:[],violationTypes:[],activeYear:'',currentWeek:null,catalogVersion:null};
 let rows=[],editingRecordId='',editingRow=null,busy=false,syncingQueue=false,queue=[],viewMode='mine';
@@ -135,7 +154,7 @@ async function flushQueue(){if(syncingQueue||!authToken||!navigator.onLine)retur
 
 async function login(){if(busy)return;const u=$('loginUser').value.trim(),p=$('loginPass').value;if(!u||!p){$('loginStatus').textContent='Vui lòng nhập tài khoản và mật khẩu.';return}busy=true;$('loginBtn').disabled=true;$('loginStatus').textContent='Đang xác thực...';try{const d=await post({action:'auth_login',username:u,password:p,deviceInfo:navigator.userAgent,clientTime:new Date().toISOString()});if(d.status!=='success')throw new Error(d.message||'Đăng nhập thất bại');if(!d.user||!['editor','admin'].includes(d.user.role)){try{await post({action:'auth_logout',authToken:d.token})}catch(_){}throw new Error('Tài khoản này không có quyền cập nhật nề nếp.')}authToken=d.token;me=d.user;localStorage.setItem(S.token,authToken);await startApp(true)}catch(e){$('loginStatus').textContent=e.message||'Không thể đăng nhập.'}finally{busy=false;$('loginBtn').disabled=false}}
 async function startApp(forceSync=false){$('loginView').classList.add('hidden');$('appView').classList.remove('hidden');restoreCatalog();restoreQueue();if(catalog.students.length)applyCatalogUI();try{await syncCatalog(forceSync);await loadRows();setTimeout(flushQueue,80)}catch(e){if(String(e.message).includes('Phiên')||String(e.message).includes('quyền')){logout(false);$('loginStatus').textContent='Phiên đăng nhập không còn hợp lệ.'}else toast(e.message)}}
-async function syncCatalog(showToast=true){$('syncBtn').disabled=true;$('syncBtn').innerHTML='<span class="sync-spin">↻</span> Đang đồng bộ';try{const d=await post({action:'editor_bootstrap',authToken});if(d.status!=='success')throw new Error(d.message||'Không đồng bộ được danh mục');me=d.user||me;catalog={students:d.students||[],classes:d.classes||[],violationTypes:d.violationTypes||[],activeYear:d.activeYear||'',currentWeek:d.currentWeek||null,catalogVersion:d.catalogVersion||null};cacheCatalog();applyCatalogUI();if(showToast)toast('Đã đồng bộ danh mục từ Desktop')}finally{$('syncBtn').disabled=false;$('syncBtn').textContent='↻ Đồng bộ danh mục'}}
+async function syncCatalog(showToast=true){$('syncBtn').disabled=true;$('syncBtn').innerHTML='<span class="sync-spin">↻</span> Đang đồng bộ';try{const d=await post({action:'editor_bootstrap',authToken});if(d.status!=='success')throw new Error(d.message||'Không đồng bộ được danh mục');me=d.user||me;catalog={students:d.students||[],classes:d.classes||[],violationTypes:d.violationTypes||[],activeYear:d.activeYear||'',currentWeek:d.currentWeek||null,catalogVersion:d.catalogVersion||null};cacheCatalog();applyCatalogUI();if(showToast)toast('Đã đồng bộ danh mục từ Desktop')}finally{$('syncBtn').disabled=false;$('syncBtn').textContent='↻ Đồng bộ'}}
 function applyCatalogUI(){const selected=$('classFilter').value;$('classFilter').innerHTML='<option value="">Tất cả lớp</option>'+catalog.classes.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');if(catalog.classes.includes(selected))$('classFilter').value=selected;const w=catalog.currentWeek;$('weekTitle').textContent=w?`${catalog.activeYear||''} • Tuần ${w.weekNum}`:`${catalog.activeYear||''} • Ngoài tuần học`;$('userLine').textContent=`Tài khoản: ${me?.username||''}`;$('catalogInfo').textContent=`${catalog.students.length} học sinh • ${catalog.violationTypes.length} danh mục vi phạm`;renderQuickChips()}
 async function loadRows(){const d=await post({action:'editor_get_violations',authToken,className:$('classFilter').value,scope:viewMode});if(d.status!=='success')throw new Error(d.message||'Không tải được dữ liệu');rows=d.rows||[];if(d.currentWeek){catalog.currentWeek=d.currentWeek;applyCatalogUI()}renderRows()}
 function renderRows(){
@@ -151,8 +170,11 @@ function renderRows(){
   $('cards').innerHTML=(pendingHtml+syncedHtml)||`<div class="empty">${viewMode==='mine'?'Bạn chưa nhập vi phạm nào trong bộ lọc này.':'Không có dữ liệu phù hợp.'}</div>`;
   renderQueueState();
 }
+function parseVNDate(v){const m=String(v||'').trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);if(!m)return null;const d=new Date(+m[3],+m[2]-1,+m[1],12,0,0);return (d.getFullYear()==+m[3]&&d.getMonth()==+m[2]-1&&d.getDate()==+m[1])?d:null}
+function formatVNDate(d){return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear()}
+function renderQuickDates(){const box=$('quickDates');if(!box)return;const base=parseVNDate($('fDate').value)||parseVNDate(stickyEntryDate)||parseVNDate(todayVN())||new Date();const dow=base.getDay();const back=dow===0?6:dow-1;const mon=new Date(base);mon.setDate(base.getDate()-back);box.innerHTML='';for(let i=0;i<6;i++){const d=new Date(mon);d.setDate(mon.getDate()+i);const full=formatVNDate(d);const b=document.createElement('button');b.type='button';b.className='quick-date-btn'+($('fDate').value===full?' active':'');b.textContent='T'+(i+2)+'-'+String(d.getDate()).padStart(2,'0');b.title=full;b.onclick=()=>{$('fDate').value=full;stickyEntryDate=full;renderQuickDates()};box.appendChild(b)}}
 function retryQueued(id){const x=queue.find(v=>v.id===id);if(x){x.status='pending';x.lastError='';saveQueue();renderRows();flushQueue()}}
-function openNew(){editingRecordId='';editingRow=null;$('formTitle').textContent='Thêm vi phạm';$('saveBtn').textContent='Lưu nhanh';$('entryHint').classList.remove('hidden');$('fName').value='';$('fClass').value='';$('fViolation').value='';$('fDate').value=todayVN();$('fSession').value=currentSessionVN();$('fNote').value='';$('editorOverlay').classList.remove('hidden');setTimeout(()=>$('fName').focus(),100)}
+function openNew(){editingRecordId='';editingRow=null;$('formTitle').textContent='Thêm vi phạm';$('saveBtn').textContent='Lưu nhanh';$('entryHint').classList.remove('hidden');$('fName').value='';$('fClass').value='';$('fViolation').value='';if(!stickyEntryDate)stickyEntryDate=todayVN();$('fDate').value=stickyEntryDate;$('fSession').value=currentSessionVN();$('fNote').value='';renderQuickDates();$('editorOverlay').classList.remove('hidden');setTimeout(()=>$('fName').focus(),100)}
 function openEdit(recordId){const r=rows.find(x=>String(x.recordId||'')===String(recordId||''));if(!r)return;editingRecordId=String(r.recordId||'');editingRow=r.rowNumber||null;$('formTitle').textContent='Sửa vi phạm';$('saveBtn').textContent='Lưu thay đổi';$('entryHint').classList.add('hidden');$('fName').value=r.name||'';$('fClass').value=r.className||'';$('fViolation').value=r.violation||'';$('fDate').value=r.date||'';$('fSession').value=r.session||'';$('fNote').value=r.note||'';$('editorOverlay').classList.remove('hidden')}
 function closeForm(){$('editorOverlay').classList.add('hidden');$('studentSuggest').classList.add('hidden');$('violationSuggest').classList.add('hidden')}
 function recordFromForm(){return{name:$('fName').value.trim(),className:$('fClass').value.trim(),violation:$('fViolation').value.trim(),date:$('fDate').value.trim(),session:$('fSession').value.trim(),note:$('fNote').value.trim()}}
@@ -166,6 +188,7 @@ async function saveForm(){
     catch(e){toast(e.message)}finally{busy=false;$('saveBtn').disabled=false}
     return;
   }
+  stickyEntryDate=record.date||stickyEntryDate;
   enqueueAdd(record);
   $('fName').value='';$('fClass').value='';$('fNote').value='';$('studentSuggest').classList.add('hidden');
   toast(navigator.onLine?'Đã lưu nhanh • đang đồng bộ nền':'Đã lưu tạm • sẽ đồng bộ khi có mạng');
@@ -178,7 +201,7 @@ function renderQuickChips(){$('quickChips').innerHTML=catalog.violationTypes.sli
 async function logout(callServer=true){const t=authToken;authToken='';me=null;viewMode='mine';localStorage.removeItem(S.token);if(callServer&&t){try{await post({action:'auth_logout',authToken:t,deviceInfo:navigator.userAgent,clientTime:new Date().toISOString()})}catch(_){}}$('appView').classList.add('hidden');$('loginView').classList.remove('hidden');$('loginPass').value=''}
 
 $('mineTab').onclick=()=>{if(viewMode==='mine')return;viewMode='mine';loadRows().catch(e=>toast(e.message))};$('allTab').onclick=()=>{if(viewMode==='all')return;viewMode='all';loadRows().catch(e=>toast(e.message))};
-$('loginBtn').onclick=login;$('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')login()});$('logoutBtn').onclick=()=>logout(true);$('syncBtn').onclick=()=>syncCatalog(true);$('refreshBtn').onclick=()=>loadRows().catch(e=>toast(e.message));$('classFilter').onchange=()=>loadRows().catch(e=>toast(e.message));$('searchInput').oninput=renderRows;$('addBtn').onclick=openNew;$('quickAddBtn').onclick=openNew;$('cancelBtn').onclick=closeForm;$('saveBtn').onclick=saveForm;$('editorOverlay').addEventListener('click',e=>{if(e.target===$('editorOverlay'))closeForm()});$('fName').addEventListener('input',studentSuggestions);$('fName').addEventListener('focus',studentSuggestions);$('fViolation').addEventListener('input',violationSuggestions);$('fViolation').addEventListener('focus',violationSuggestions);
+$('loginBtn').onclick=login;$('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')login()});$('logoutBtn').onclick=()=>logout(true);$('syncBtn').onclick=()=>syncCatalog(true);$('refreshBtn').onclick=()=>loadRows().catch(e=>toast(e.message));$('classFilter').onchange=()=>loadRows().catch(e=>toast(e.message));$('searchInput').oninput=renderRows;$('addBtn').onclick=openNew;$('quickAddBtn').onclick=openNew;$('cancelBtn').onclick=closeForm;$('saveBtn').onclick=saveForm;$('editorOverlay').addEventListener('click',e=>{if(e.target===$('editorOverlay'))closeForm()});$('fName').addEventListener('input',studentSuggestions);$('fName').addEventListener('focus',studentSuggestions);$('fViolation').addEventListener('input',violationSuggestions);$('fViolation').addEventListener('focus',violationSuggestions);$('fDate').addEventListener('change',()=>{const d=parseVNDate($('fDate').value);if(d){stickyEntryDate=formatVNDate(d);$('fDate').value=stickyEntryDate;renderQuickDates()}});$('fDate').addEventListener('blur',()=>{const d=parseVNDate($('fDate').value);if(d){stickyEntryDate=formatVNDate(d);$('fDate').value=stickyEntryDate;renderQuickDates()}});
 $('studentSuggest').addEventListener('click',e=>{const it=e.target.closest('.suggest-item');if(!it)return;$('fName').value=it.dataset.name||'';$('fClass').value=it.dataset.class||'';$('studentSuggest').classList.add('hidden');$('fViolation').focus()});
 $('violationSuggest').addEventListener('click',e=>{const it=e.target.closest('.suggest-item');if(!it)return;$('fViolation').value=it.dataset.vio||'';$('violationSuggest').classList.add('hidden')});
 $('quickChips').addEventListener('click',e=>{const b=e.target.closest('[data-chip]');if(b)$('fViolation').value=b.dataset.chip||''});
