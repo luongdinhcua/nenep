@@ -197,6 +197,104 @@
   .pdf-preview-page .a5-print-table{min-width:700px;font-size:12px}
 }
 
+
+/* V34.8 UI V6 - iPhone one-line school header */
+.brand > div{
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
+.brand .app-school-top{
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  white-space:nowrap !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  font-size:clamp(9.7px,2.85vw,11.2px) !important;
+  line-height:1.12 !important;
+  letter-spacing:-0.12px !important;
+  font-weight:800 !important;
+}
+@media(max-width:390px){
+  .brand .app-school-top{
+    font-size:clamp(9.35px,2.72vw,10.6px) !important;
+    letter-spacing:-0.16px !important;
+  }
+}
+
+
+/* Direct PDF staging */
+#pdfExportStage{
+  position:fixed;
+  left:-100000px;
+  top:0;
+  width:200mm;
+  background:#fff;
+  z-index:-1;
+  pointer-events:none;
+}
+#pdfExportStage .pdf-export-page{
+  width:200mm;
+  min-height:138mm;
+  box-sizing:border-box;
+  background:#fff;
+  padding:5mm 8mm;
+  color:#000;
+  font-family:"Times New Roman",Times,serif;
+  page-break-after:always;
+  break-after:page;
+}
+#pdfExportStage .pdf-export-page:last-child{
+  page-break-after:auto;
+  break-after:auto;
+}
+#pdfExportStage .a5-print-title{
+  text-align:center;
+  font-size:13pt;
+  line-height:1.15;
+  font-weight:700;
+  margin:0 0 4px;
+  color:#000;
+}
+#pdfExportStage .a5-print-subtitle{
+  text-align:center;
+  font-size:11pt;
+  line-height:1.15;
+  font-weight:700;
+  margin:0 0 7px;
+  color:#1e3a8a;
+}
+#pdfExportStage .a5-print-table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:11pt;
+}
+#pdfExportStage .a5-print-table th,
+#pdfExportStage .a5-print-table td{
+  border:1.2px solid #000;
+  padding:4px 6px;
+  line-height:1.2;
+  vertical-align:middle;
+  overflow-wrap:anywhere;
+}
+#pdfExportStage .a5-print-table th{
+  text-align:center;
+  font-weight:700;
+  background:#f5ebe0;
+}
+#pdfExportStage .a5-col-stt{width:42px;text-align:center;white-space:nowrap}
+#pdfExportStage .a5-col-name{width:24%;text-align:left}
+#pdfExportStage .a5-col-vio{width:29%;text-align:center;color:#dc2626;font-weight:500}
+#pdfExportStage .a5-col-date{width:88px;text-align:center;white-space:nowrap}
+#pdfExportStage .a5-col-session{width:46px;text-align:center;white-space:nowrap}
+#pdfExportStage .a5-col-note{width:20%;text-align:left}
+
+
+/* V34.8 UI V7 */
+html,body,#appView,.app-view,main{background:#fff!important}
+.brand h1,.loginbox h1,.app-title,.top-title h1{color:#0f9f85!important}
+
 </style>
 </head>
 <body>
@@ -308,14 +406,16 @@
     <div class="pdf-preview-actions">
       <button id="pdfPreviewCloseBtn" class="btn btn-soft" type="button">Đóng</button>
       <button id="pdfExportBtn" class="btn btn-primary pdf-export-btn" type="button">
-        <span class="pdf-mini-badge">PDF</span> Xuất PDF
+        <span class="pdf-mini-badge">PDF</span> Xuất PDF A5
       </button>
     </div>
   </div>
 </div>
+<div id="pdfExportStage" aria-hidden="true"></div>
 <div id="printContainer" aria-hidden="true"></div>
 <div id="toast" class="toast hidden"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 const API_URL='https://script.google.com/macros/s/AKfycbxcA-WVrQVjqJWgm9IvkKJ79s0AImEmbp73cPw06Zr-84YYJWzEyUhfqayc4Sa6FBE7/exec';
 const S={token:'nenep_editor_token',catalog:'nenep_editor_catalog',queue:'nenep_editor_queue_v2'};
@@ -426,9 +526,51 @@ function suggestionKeydown(e,boxId,type){const box=$(boxId),items=kbItems(boxId)
 function sortClassNames(a,b){return String(a||'').localeCompare(String(b||''),'vi',{numeric:true,sensitivity:'base'})}
 function printDateValue(v){const d=parseVNDate(v);return d?d.getTime():0}
 function buildA5WeekPrint(allRows){const data=[...(allRows||[])].filter(r=>r&&r.name&&r.className);data.sort((a,b)=>{const c=sortClassNames(a.className,b.className);if(c!==0)return c;const d=printDateValue(a.date)-printDateValue(b.date);if(d!==0)return d;const n=String(a.name||'').localeCompare(String(b.name||''),'vi',{sensitivity:'base'});if(n!==0)return n;return String(a.session||'').localeCompare(String(b.session||''),'vi',{sensitivity:'base'})});const byClass=new Map();data.forEach(r=>{const k=String(r.className||'').trim();if(!byClass.has(k))byClass.set(k,[]);byClass.get(k).push(r)});const weekNum=catalog.currentWeek?.weekNum;const weekTitle=weekNum?`TUẦN ${weekNum}`:'TUẦN HIỆN HÀNH';const pages=[...byClass.entries()].map(([cls,list])=>{const body=list.map((r,i)=>`<tr><td class="a5-col-stt">${i+1}</td><td class="a5-col-name">${escapeHtml(r.name||'')}</td><td class="a5-col-vio">${escapeHtml(r.violation||'')}</td><td class="a5-col-date">${escapeHtml(r.date||'')}</td><td class="a5-col-session">${escapeHtml(r.session||'')}</td><td class="a5-col-note">${escapeHtml(r.note||'')}</td></tr>`).join('');return `<section class="a5-class-page"><h2 class="a5-print-title">DANH SÁCH VI PHẠM NỀ NẾP HỌC SINH</h2><h3 class="a5-print-subtitle">LỚP: ${escapeHtml(cls)} - ${escapeHtml(weekTitle)}</h3><table class="a5-print-table"><thead><tr><th class="a5-col-stt">STT</th><th class="a5-col-name">Họ và tên</th><th class="a5-col-vio">Hình thức vi phạm</th><th class="a5-col-date">Ngày</th><th class="a5-col-session">Buổi</th><th class="a5-col-note">Ghi chú</th></tr></thead><tbody>${body}</tbody></table></section>`}).join('');$('printContainer').innerHTML=pages;return byClass.size}
-function openPdfPreview(){const body=$('pdfPreviewBody');body.innerHTML=$('printContainer').innerHTML.replace(/class="a5-class-page"/g,'class="pdf-preview-page"');const pages=body.querySelectorAll('.pdf-preview-page').length;const total=body.querySelectorAll('tbody tr').length;$('pdfPreviewInfo').textContent=`${pages} lớp • ${total} vi phạm`;$('pdfPreviewOverlay').classList.remove('hidden');document.body.style.overflow='hidden'}
+function openPdfPreview(){const body=$('pdfPreviewBody');body.innerHTML=$('printContainer').innerHTML.replace(/class="a5-class-page"/g,'class="pdf-preview-page"');const pages=body.querySelectorAll('.pdf-preview-page').length;const total=body.querySelectorAll('tbody tr').length;$('pdfPreviewInfo').textContent=`${pages} lớp • ${total} vi phạm • A5 ngang`;$('pdfPreviewOverlay').classList.remove('hidden');document.body.style.overflow='hidden'}
 function closePdfPreview(){$('pdfPreviewOverlay').classList.add('hidden');document.body.style.overflow=''}
-function exportPreviewToPdf(){closePdfPreview();setTimeout(()=>window.print(),80)}
+async function exportPreviewToPdf(){
+  if(typeof html2pdf!=='function'){
+    toast('Chưa tải được bộ tạo PDF. Vui lòng kiểm tra kết nối mạng rồi thử lại.');
+    return;
+  }
+  const btn=$('pdfExportBtn');
+  if(btn.disabled)return;
+  btn.disabled=true;
+  const oldHtml=btn.innerHTML;
+  btn.innerHTML='<span class="pdf-mini-badge">PDF</span> Đang tạo PDF...';
+  try{
+    const stage=$('pdfExportStage');
+    stage.innerHTML=$('printContainer').innerHTML.replace(/class="a5-class-page"/g,'class="pdf-export-page"');
+    const weekNum=catalog.currentWeek?.weekNum||'';
+    const year=catalog.activeYear||'';
+    const safeYear=String(year).replace(/[^\d-]/g,'');
+    const filename=`Ne_Nep_${safeYear||'NamHoc'}_Tuan_${weekNum||'HienTai'}.pdf`;
+    const opt={
+      margin:0,
+      filename,
+      image:{type:'jpeg',quality:0.96},
+      html2canvas:{
+        scale:2,
+        useCORS:true,
+        backgroundColor:'#ffffff',
+        logging:false,
+        scrollX:0,
+        scrollY:0
+      },
+      jsPDF:{unit:'mm',format:'a5',orientation:'landscape',compress:true},
+      pagebreak:{mode:['css','legacy']}
+    };
+    await html2pdf().set(opt).from(stage).save();
+    closePdfPreview();
+    toast('Đã tạo file PDF A5');
+  }catch(e){
+    toast(e?.message||'Không thể tạo file PDF');
+  }finally{
+    btn.disabled=false;
+    btn.innerHTML=oldHtml;
+    $('pdfExportStage').innerHTML='';
+  }
+}
 async function printCurrentWeekA5(){if(!canPrintEditor()){toast('Tài khoản học sinh không có quyền xuất PDF');return}if(!navigator.onLine){toast('Cần kết nối mạng để xuất PDF đầy đủ toàn bộ tuần');return}const btn=$('printBtn');if(btn.disabled)return;btn.disabled=true;try{if(queueForCurrentUser().length)await flushQueue();const d=await post({action:'editor_print_week',authToken});if(d.status!=='success')throw new Error(d.message||'Không tải được dữ liệu để xuất PDF');if(d.currentWeek){catalog.currentWeek=d.currentWeek;applyCatalogUI()}const count=buildA5WeekPrint(d.rows||[]);if(!count){toast('Tuần hiện hành chưa có dữ liệu vi phạm để xuất PDF');return}openPdfPreview()}catch(e){toast(e.message||'Không thể chuẩn bị dữ liệu PDF')}finally{btn.disabled=false}}
 
 async function logout(callServer=true){const t=authToken;authToken='';me=null;viewMode='mine';localStorage.removeItem(S.token);if(callServer&&t){try{await post({action:'auth_logout',authToken:t,deviceInfo:navigator.userAgent,clientTime:new Date().toISOString()})}catch(_){}}$('appView').classList.add('hidden');$('loginView').classList.remove('hidden');$('loginPass').value=''}
