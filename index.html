@@ -80,6 +80,123 @@
   letter-spacing:0 !important;
 }
 
+
+/* V34.8 UI V3: one-line school header */
+.brand{
+  width:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  padding-left:6px !important;
+  padding-right:6px !important;
+}
+.brand > div,
+.brand .brand-text,
+.app-brand,
+.app-school{
+  min-width:0 !important;
+  max-width:none !important;
+}
+.app-school{
+  display:block !important;
+  width:100% !important;
+  white-space:nowrap !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  font-size:10.7px !important;
+  line-height:1.15 !important;
+  letter-spacing:-0.12px !important;
+}
+@media(max-width:390px){
+  .app-school{
+    font-size:10.2px !important;
+    letter-spacing:-0.18px !important;
+  }
+}
+
+
+/* V34.8 UI V4 */
+@media(max-width:480px){
+  .app-school{
+    font-size:9.8px !important;
+    line-height:1.05 !important;
+    letter-spacing:-0.22px !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+    text-overflow:clip !important;
+  }
+}
+
+
+/* V34.8 UI V5 - PDF preview */
+.pdf-icon-btn{font-size:0}
+.pdf-icon-label{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:27px;height:19px;padding:0 3px;border-radius:4px;
+  background:#b42318;color:#fff;font-size:9px;font-weight:900;letter-spacing:.02em
+}
+.pdf-preview-overlay{
+  position:fixed;inset:0;z-index:1500;background:rgba(5,37,52,.58);
+  display:flex;align-items:flex-end;justify-content:center;padding:10px;
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)
+}
+.pdf-preview-overlay.hidden{display:none!important}
+.pdf-preview-panel{
+  width:min(920px,100%);height:min(95dvh,900px);background:#f7fbfb;
+  border-radius:22px 22px 14px 14px;overflow:hidden;display:flex;flex-direction:column;
+  box-shadow:0 22px 70px rgba(5,37,52,.3)
+}
+.pdf-preview-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  padding:14px 15px 10px;background:linear-gradient(135deg,#e8f8f7,#f8fbfb);
+  border-bottom:1px solid rgba(8,123,131,.16)
+}
+.pdf-preview-kicker{font-size:10px;font-weight:900;letter-spacing:.13em;color:#087b83;margin-bottom:3px}
+.pdf-preview-head h2{margin:0;font-size:18px;line-height:1.2;color:#073f59}
+.pdf-close-x{
+  flex:0 0 auto;width:36px;height:36px;border:0;border-radius:10px;background:rgba(7,63,89,.08);
+  color:#073f59;font-size:27px;line-height:1;padding:0 0 3px
+}
+.pdf-preview-info{
+  padding:8px 14px;background:#fff;border-bottom:1px solid #e5eeee;
+  font-size:12px;font-weight:700;color:#607178
+}
+.pdf-preview-body{flex:1;min-height:0;overflow:auto;padding:11px;background:#eaf2f3}
+.pdf-preview-page{
+  width:min(100%,760px);margin:0 auto 14px;background:#fff;border:1px solid #d3dee0;
+  border-radius:6px;padding:14px 16px 18px;box-shadow:0 5px 16px rgba(7,63,89,.08);
+  color:#000;font-family:"Times New Roman",Times,serif
+}
+.pdf-preview-page .a5-print-title{text-align:center;font-size:17px;line-height:1.15;font-weight:700;margin:0 0 4px;color:#000}
+.pdf-preview-page .a5-print-subtitle{text-align:center;font-size:15px;line-height:1.15;font-weight:700;margin:0 0 8px;color:#1e3a8a}
+.pdf-preview-page .a5-print-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}
+.pdf-preview-page .a5-print-table th,.pdf-preview-page .a5-print-table td{
+  border:1px solid #000;padding:4px 5px;line-height:1.2;vertical-align:middle;overflow-wrap:anywhere
+}
+.pdf-preview-page .a5-print-table th{text-align:center;font-weight:700;background:#f5ebe0}
+.pdf-preview-page .a5-col-stt{width:42px;text-align:center;white-space:nowrap}
+.pdf-preview-page .a5-col-name{width:24%;text-align:left}
+.pdf-preview-page .a5-col-vio{width:29%;text-align:center;color:#dc2626;font-weight:500}
+.pdf-preview-page .a5-col-date{width:88px;text-align:center;white-space:nowrap}
+.pdf-preview-page .a5-col-session{width:46px;text-align:center;white-space:nowrap}
+.pdf-preview-page .a5-col-note{width:20%;text-align:left}
+.pdf-preview-actions{
+  display:grid;grid-template-columns:1fr 1.35fr;gap:9px;padding:10px 11px calc(10px + env(safe-area-inset-bottom));
+  background:#fff;border-top:1px solid #dfe9eb
+}
+.pdf-preview-actions .btn{min-height:48px}
+.pdf-export-btn{display:flex!important;align-items:center;justify-content:center;gap:8px}
+.pdf-mini-badge{
+  display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:22px;padding:0 5px;
+  border-radius:5px;background:#b42318;color:#fff;font-size:10px;font-weight:900
+}
+@media(max-width:600px){
+  .pdf-preview-overlay{padding:0}
+  .pdf-preview-panel{width:100%;height:96dvh;border-radius:20px 20px 0 0}
+  .pdf-preview-body{padding:8px}
+  .pdf-preview-page{width:100%;padding:10px 7px 13px;overflow-x:auto}
+  .pdf-preview-page .a5-print-table{min-width:700px;font-size:12px}
+}
+
 </style>
 </head>
 <body>
@@ -109,7 +226,9 @@
         <div><div class="label">Năm học / tuần hiện tại</div><div id="weekTitle" style="font-weight:900">—</div></div>
         <div class="icon-tools" aria-label="Công cụ">
   <button id="syncBtn" class="icon-btn" type="button" title="Đồng bộ" aria-label="Đồng bộ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6v5h-5M4 18v-5h5M6.1 9a7 7 0 0 1 11.7-2.6L20 9M4 15l2.2 2.6A7 7 0 0 0 18 15"/></svg></button>
-  <button id="printBtn" class="icon-btn" type="button" title="In / Xuất PDF A5" aria-label="In hoặc xuất PDF A5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M7 14h10v7H7z"/><path d="M17 11h.01"/></svg></button>
+  <button id="printBtn" class="icon-btn pdf-icon-btn" type="button" title="Xuất PDF" aria-label="Xuất PDF">
+  <span class="pdf-icon-label">PDF</span>
+</button>
   <button id="logoutBtn" class="icon-btn icon-btn-exit" type="button" title="Thoát" aria-label="Thoát"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5"/></svg></button>
 </div>
       </div>
@@ -132,7 +251,7 @@
       <div class="queue-line"><span>Đồng bộ nền</span><span id="queuePill" class="queue-pill">✓ Không có dữ liệu chờ</span></div>
     </section>
     <button id="quickAddBtn" class="btn btn-primary" style="width:100%;min-height:52px;margin-bottom:12px;font-size:16px">＋ Nhập vi phạm</button>
-    <section class="row between" style="margin:2px 2px 10px"><div id="countLine" class="summary">0 vi phạm</div><button id="refreshBtn" class="btn btn-soft">Làm mới</button></section>
+    <section class="row between" style="margin:2px 2px 10px"><div id="countLine" class="summary">0 vi phạm</div></section>
     <section id="cards"></section>
   </main>
   <button id="addBtn" class="fab" aria-label="Thêm vi phạm">+</button>
@@ -172,6 +291,26 @@
       <div class="summary" id="entryHint">Bấm lưu là nhập người tiếp theo ngay; dữ liệu sẽ tự đồng bộ ở nền.</div>
     </div>
     <div class="form-actions"><button id="cancelBtn" class="btn btn-soft">Đóng</button><button id="saveBtn" class="btn btn-primary">Lưu nhanh</button></div>
+  </div>
+</div>
+
+<div id="pdfPreviewOverlay" class="pdf-preview-overlay hidden" role="dialog" aria-modal="true">
+  <div class="pdf-preview-panel">
+    <div class="pdf-preview-head">
+      <div>
+        <div class="pdf-preview-kicker">XEM TRƯỚC</div>
+        <h2>Danh sách nề nếp tuần hiện tại</h2>
+      </div>
+      <button id="pdfPreviewCloseX" class="pdf-close-x" type="button" aria-label="Đóng">×</button>
+    </div>
+    <div id="pdfPreviewInfo" class="pdf-preview-info"></div>
+    <div id="pdfPreviewBody" class="pdf-preview-body"></div>
+    <div class="pdf-preview-actions">
+      <button id="pdfPreviewCloseBtn" class="btn btn-soft" type="button">Đóng</button>
+      <button id="pdfExportBtn" class="btn btn-primary pdf-export-btn" type="button">
+        <span class="pdf-mini-badge">PDF</span> Xuất PDF
+      </button>
+    </div>
   </div>
 </div>
 <div id="printContainer" aria-hidden="true"></div>
@@ -222,6 +361,16 @@ async function flushQueue(){if(syncingQueue||!authToken||!navigator.onLine)retur
 async function login(){if(busy)return;const u=$('loginUser').value.trim(),p=$('loginPass').value;if(!u||!p){$('loginStatus').textContent='Vui lòng nhập tài khoản và mật khẩu.';return}busy=true;$('loginBtn').disabled=true;$('loginStatus').textContent='Đang xác thực...';try{const d=await post({action:'auth_login',username:u,password:p,deviceInfo:navigator.userAgent,clientTime:new Date().toISOString()});if(d.status!=='success')throw new Error(d.message||'Đăng nhập thất bại');if(!d.user||!['editor','admin'].includes(d.user.role)){try{await post({action:'auth_logout',authToken:d.token})}catch(_){}throw new Error('Tài khoản này không có quyền cập nhật nề nếp.')}authToken=d.token;me=d.user;localStorage.setItem(S.token,authToken);await startApp(true)}catch(e){$('loginStatus').textContent=e.message||'Không thể đăng nhập.'}finally{busy=false;$('loginBtn').disabled=false}}
 async function startApp(forceSync=false){$('loginView').classList.add('hidden');$('appView').classList.remove('hidden');restoreCatalog();restoreQueue();if(catalog.students.length)applyCatalogUI();try{await syncCatalog(forceSync);await loadRows();setTimeout(flushQueue,80)}catch(e){if(String(e.message).includes('Phiên')||String(e.message).includes('quyền')){logout(false);$('loginStatus').textContent='Phiên đăng nhập không còn hợp lệ.'}else toast(e.message)}}
 async function syncCatalog(showToast=true){$('syncBtn').disabled=true;$('syncBtn').classList.add('syncing');try{const d=await post({action:'editor_bootstrap',authToken});if(d.status!=='success')throw new Error(d.message||'Không đồng bộ được danh mục');me=d.user||me;catalog={students:d.students||[],classes:d.classes||[],violationTypes:d.violationTypes||[],activeYear:d.activeYear||'',currentWeek:d.currentWeek||null,catalogVersion:d.catalogVersion||null};cacheCatalog();applyCatalogUI();if(showToast)toast('Đã đồng bộ danh mục')}finally{$('syncBtn').disabled=false;$('syncBtn').classList.remove('syncing')}}
+async function syncAll(){
+  try{
+    await syncCatalog(false);
+    await loadRows();
+    toast('Đã cập nhật dữ liệu');
+  }catch(e){
+    toast(e.message||'Không cập nhật được dữ liệu');
+  }
+}
+
 function applyCatalogUI(){const selected=$('classFilter').value;$('classFilter').innerHTML='<option value="">Tất cả lớp</option>'+catalog.classes.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');if(catalog.classes.includes(selected))$('classFilter').value=selected;const w=catalog.currentWeek;$('weekTitle').textContent=w?`${catalog.activeYear||''} • Tuần ${w.weekNum}`:`${catalog.activeYear||''} • Ngoài tuần học`;$('catalogInfo').textContent=`${catalog.students.length} học sinh • ${catalog.violationTypes.length} danh mục vi phạm`;renderQuickChips();applyEditorPermissions()}
 async function loadRows(){const d=await post({action:'editor_get_violations',authToken,className:$('classFilter').value,scope:viewMode});if(d.status!=='success')throw new Error(d.message||'Không tải được dữ liệu');rows=d.rows||[];if(d.currentWeek){catalog.currentWeek=d.currentWeek;applyCatalogUI()}renderRows()}
 function renderRows(){
@@ -277,12 +426,15 @@ function suggestionKeydown(e,boxId,type){const box=$(boxId),items=kbItems(boxId)
 function sortClassNames(a,b){return String(a||'').localeCompare(String(b||''),'vi',{numeric:true,sensitivity:'base'})}
 function printDateValue(v){const d=parseVNDate(v);return d?d.getTime():0}
 function buildA5WeekPrint(allRows){const data=[...(allRows||[])].filter(r=>r&&r.name&&r.className);data.sort((a,b)=>{const c=sortClassNames(a.className,b.className);if(c!==0)return c;const d=printDateValue(a.date)-printDateValue(b.date);if(d!==0)return d;const n=String(a.name||'').localeCompare(String(b.name||''),'vi',{sensitivity:'base'});if(n!==0)return n;return String(a.session||'').localeCompare(String(b.session||''),'vi',{sensitivity:'base'})});const byClass=new Map();data.forEach(r=>{const k=String(r.className||'').trim();if(!byClass.has(k))byClass.set(k,[]);byClass.get(k).push(r)});const weekNum=catalog.currentWeek?.weekNum;const weekTitle=weekNum?`TUẦN ${weekNum}`:'TUẦN HIỆN HÀNH';const pages=[...byClass.entries()].map(([cls,list])=>{const body=list.map((r,i)=>`<tr><td class="a5-col-stt">${i+1}</td><td class="a5-col-name">${escapeHtml(r.name||'')}</td><td class="a5-col-vio">${escapeHtml(r.violation||'')}</td><td class="a5-col-date">${escapeHtml(r.date||'')}</td><td class="a5-col-session">${escapeHtml(r.session||'')}</td><td class="a5-col-note">${escapeHtml(r.note||'')}</td></tr>`).join('');return `<section class="a5-class-page"><h2 class="a5-print-title">DANH SÁCH VI PHẠM NỀ NẾP HỌC SINH</h2><h3 class="a5-print-subtitle">LỚP: ${escapeHtml(cls)} - ${escapeHtml(weekTitle)}</h3><table class="a5-print-table"><thead><tr><th class="a5-col-stt">STT</th><th class="a5-col-name">Họ và tên</th><th class="a5-col-vio">Hình thức vi phạm</th><th class="a5-col-date">Ngày</th><th class="a5-col-session">Buổi</th><th class="a5-col-note">Ghi chú</th></tr></thead><tbody>${body}</tbody></table></section>`}).join('');$('printContainer').innerHTML=pages;return byClass.size}
-async function printCurrentWeekA5(){if(!canPrintEditor()){toast('Tài khoản học sinh không có quyền in / xuất PDF');return}if(!navigator.onLine){toast('Cần kết nối mạng để in đầy đủ toàn bộ tuần');return}const btn=$('printBtn');if(btn.disabled)return;btn.disabled=true;try{if(queueForCurrentUser().length)await flushQueue();const d=await post({action:'editor_print_week',authToken});if(d.status!=='success')throw new Error(d.message||'Không tải được dữ liệu để in');if(d.currentWeek){catalog.currentWeek=d.currentWeek;applyCatalogUI()}const count=buildA5WeekPrint(d.rows||[]);if(!count){toast('Tuần hiện hành chưa có dữ liệu vi phạm để in');return}setTimeout(()=>window.print(),60)}catch(e){toast(e.message||'Không thể in dữ liệu tuần hiện hành')}finally{btn.disabled=false}}
+function openPdfPreview(){const body=$('pdfPreviewBody');body.innerHTML=$('printContainer').innerHTML.replace(/class="a5-class-page"/g,'class="pdf-preview-page"');const pages=body.querySelectorAll('.pdf-preview-page').length;const total=body.querySelectorAll('tbody tr').length;$('pdfPreviewInfo').textContent=`${pages} lớp • ${total} vi phạm`;$('pdfPreviewOverlay').classList.remove('hidden');document.body.style.overflow='hidden'}
+function closePdfPreview(){$('pdfPreviewOverlay').classList.add('hidden');document.body.style.overflow=''}
+function exportPreviewToPdf(){closePdfPreview();setTimeout(()=>window.print(),80)}
+async function printCurrentWeekA5(){if(!canPrintEditor()){toast('Tài khoản học sinh không có quyền xuất PDF');return}if(!navigator.onLine){toast('Cần kết nối mạng để xuất PDF đầy đủ toàn bộ tuần');return}const btn=$('printBtn');if(btn.disabled)return;btn.disabled=true;try{if(queueForCurrentUser().length)await flushQueue();const d=await post({action:'editor_print_week',authToken});if(d.status!=='success')throw new Error(d.message||'Không tải được dữ liệu để xuất PDF');if(d.currentWeek){catalog.currentWeek=d.currentWeek;applyCatalogUI()}const count=buildA5WeekPrint(d.rows||[]);if(!count){toast('Tuần hiện hành chưa có dữ liệu vi phạm để xuất PDF');return}openPdfPreview()}catch(e){toast(e.message||'Không thể chuẩn bị dữ liệu PDF')}finally{btn.disabled=false}}
 
 async function logout(callServer=true){const t=authToken;authToken='';me=null;viewMode='mine';localStorage.removeItem(S.token);if(callServer&&t){try{await post({action:'auth_logout',authToken:t,deviceInfo:navigator.userAgent,clientTime:new Date().toISOString()})}catch(_){}}$('appView').classList.add('hidden');$('loginView').classList.remove('hidden');$('loginPass').value=''}
 
 $('mineTab').onclick=()=>{if(viewMode==='mine')return;viewMode='mine';loadRows().catch(e=>toast(e.message))};$('allTab').onclick=()=>{if(viewMode==='all')return;viewMode='all';loadRows().catch(e=>toast(e.message))};
-$('loginBtn').onclick=login;$('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')login()});$('logoutBtn').onclick=()=>logout(true);$('syncBtn').onclick=()=>syncCatalog(true);$('printBtn').onclick=printCurrentWeekA5;$('refreshBtn').onclick=()=>loadRows().catch(e=>toast(e.message));$('classFilter').onchange=()=>loadRows().catch(e=>toast(e.message));$('searchInput').oninput=renderRows;$('addBtn').onclick=openNew;$('quickAddBtn').onclick=openNew;$('cancelBtn').onclick=closeForm;$('saveBtn').onclick=saveForm;$('editorOverlay').addEventListener('click',e=>{if(e.target===$('editorOverlay'))closeForm()});$('fName').addEventListener('input',studentSuggestions);$('fName').addEventListener('focus',studentSuggestions);$('fViolation').addEventListener('input',violationSuggestions);$('fViolation').addEventListener('focus',violationSuggestions);$('fName').addEventListener('keydown',e=>suggestionKeydown(e,'studentSuggest','student'));$('fViolation').addEventListener('keydown',e=>suggestionKeydown(e,'violationSuggest','violation'));$('fDate').addEventListener('change',()=>{if(isStudentEditor()){stickyEntryDate=todayVN();$('fDate').value=stickyEntryDate;return}const d=parseVNDate($('fDate').value);if(d){stickyEntryDate=formatVNDate(d);$('fDate').value=stickyEntryDate;renderQuickDates()}});$('fDate').addEventListener('blur',()=>{if(isStudentEditor()){stickyEntryDate=todayVN();$('fDate').value=stickyEntryDate;return}const d=parseVNDate($('fDate').value);if(d){stickyEntryDate=formatVNDate(d);$('fDate').value=stickyEntryDate;renderQuickDates()}});
+$('loginBtn').onclick=login;$('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')login()});$('logoutBtn').onclick=()=>logout(true);$('syncBtn').onclick=syncAll;$('printBtn').onclick=printCurrentWeekA5;$('pdfPreviewCloseX').onclick=closePdfPreview;$('pdfPreviewCloseBtn').onclick=closePdfPreview;$('pdfExportBtn').onclick=exportPreviewToPdf;$('pdfPreviewOverlay').addEventListener('click',e=>{if(e.target===$('pdfPreviewOverlay'))closePdfPreview()});$('classFilter').onchange=()=>loadRows().catch(e=>toast(e.message));$('searchInput').oninput=renderRows;$('addBtn').onclick=openNew;$('quickAddBtn').onclick=openNew;$('cancelBtn').onclick=closeForm;$('saveBtn').onclick=saveForm;$('editorOverlay').addEventListener('click',e=>{if(e.target===$('editorOverlay'))closeForm()});$('fName').addEventListener('input',studentSuggestions);$('fName').addEventListener('focus',studentSuggestions);$('fViolation').addEventListener('input',violationSuggestions);$('fViolation').addEventListener('focus',violationSuggestions);$('fName').addEventListener('keydown',e=>suggestionKeydown(e,'studentSuggest','student'));$('fViolation').addEventListener('keydown',e=>suggestionKeydown(e,'violationSuggest','violation'));$('fDate').addEventListener('change',()=>{if(isStudentEditor()){stickyEntryDate=todayVN();$('fDate').value=stickyEntryDate;return}const d=parseVNDate($('fDate').value);if(d){stickyEntryDate=formatVNDate(d);$('fDate').value=stickyEntryDate;renderQuickDates()}});$('fDate').addEventListener('blur',()=>{if(isStudentEditor()){stickyEntryDate=todayVN();$('fDate').value=stickyEntryDate;return}const d=parseVNDate($('fDate').value);if(d){stickyEntryDate=formatVNDate(d);$('fDate').value=stickyEntryDate;renderQuickDates()}});
 $('studentSuggest').addEventListener('click',e=>{const it=e.target.closest('.suggest-item');if(!it)return;chooseStudentItem(it)});
 $('violationSuggest').addEventListener('click',e=>{const it=e.target.closest('.suggest-item');if(!it)return;chooseViolationItem(it)});
 // V8: Giữ nguyên loại vi phạm/ngày/buổi sau Lưu nhanh. Chỉ xóa loại vi phạm khi người dùng chủ động chạm vào ô này để nhập loại khác.
