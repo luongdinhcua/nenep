@@ -7,7 +7,7 @@
 <!-- UI V2: equal filters, centered FAB, taller add sheet, more quick suggestions -->
 <title>Quản Lý Nề Nếp</title>
 <style>
-:root{--title-gold:#b88a28;--bg:#edf8f8;--card:#ffffff;--ink:#123f50;--muted:#5f7480;--line:#d3e8e9;--blue:#10a6a6;--blue-dark:#087b83;--navy:#073f59;--navy2:#0a5970;--yellow:#f3c94f;--cream:#fff4cf;--coral:#ff5940;--red:#dc2626;--green:#0f9f85;--amber:#d49a18;--shadow:0 10px 28px rgba(7,63,89,.10)}
+:root{--title-gold:#d8a73a;--bg:#edf8f8;--card:#ffffff;--ink:#123f50;--muted:#5f7480;--line:#d3e8e9;--blue:#10a6a6;--blue-dark:#087b83;--navy:#073f59;--navy2:#0a5970;--yellow:#f3c94f;--cream:#fff4cf;--coral:#ff5940;--red:#dc2626;--green:#0f9f85;--amber:#d49a18;--shadow:0 10px 28px rgba(7,63,89,.10)}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}html,body{margin:0;background:linear-gradient(180deg,#eefafa 0%,#f7fbfc 48%,#eef6f7 100%);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:15px}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
 .shell{max-width:760px;margin:auto;min-height:100vh;padding-bottom:94px}.topbar{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,rgba(232,251,248,.97) 0%,rgba(237,248,248,.95) 100%);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:11px 14px}.brand{position:relative;display:flex;align-items:center;justify-content:center;min-height:64px}.brand>div{width:100%;text-align:center;padding:0 76px}.brand h1{font-size:19px;margin:0;line-height:1.15;color:var(--title-gold);font-weight:900;letter-spacing:.1px}.brand small{display:block;color:var(--muted);margin-top:4px;font-weight:700}.school-name{font-size:11px;color:var(--blue-dark);font-weight:800;margin-top:4px;line-height:1.25}.brand #logoutBtn{position:absolute;right:0;top:50%;transform:translateY(-50%);background:#fff;color:var(--navy);border:1px solid var(--line);box-shadow:0 4px 12px rgba(7,63,89,.06)}
 .badge{display:inline-flex;align-items:center;gap:6px;background:#e0ecff;color:#1746a2;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700}.dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
@@ -69,6 +69,16 @@
 .role-teacher{color:#087b83;font-weight:800}
 .permission-note{font-size:11px;color:#667085;margin-top:3px}
 #fDate[readonly]{background:#f1f5f9;color:#475467;cursor:not-allowed}
+
+
+/* V34.8 UI V2 */
+.app-school{
+  white-space:nowrap !important;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-size:11.5px !important;
+  letter-spacing:0 !important;
+}
 
 </style>
 </head>
